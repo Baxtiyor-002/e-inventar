@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="card text-center">
+      <div class="card-header">
+        <b>Инвентар: {{ object.inventar }}</b>
+      </div>
+
+      <div class="card-body">
+        <h5 class="card-title">Тури: {{ object.name }}</h5>
+        <p class="card-text"><h5>Техник маълумот: {{ object.description }}</h5></p>
+        <p class="card-text"><h5>Ҳолати: {{ object.service }}</h5></p>
+        <p class="card-text"><h5>Харид қилинган санаси: {{ object.bought }}</h5></p>
+        <p class="card-text"><h5>Харид қилинган корхона: {{ object.company }}</h5></p>
+      </div>
+      <div class="card-footer text-muted" >
+        <h6 style="float: right">Фойдаланувчи: {{ object.handler }} | Бўлим: {{ object.structure }}</h6>
+      </div>
+    </div>
+{% endblock content %}

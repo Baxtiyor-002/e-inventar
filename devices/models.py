@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -74,11 +75,14 @@ class Device(models.Model):
         verbose_name="Маъсул ходим",
         on_delete=models.CASCADE
     )
-    Document = models.FileField(upload_to='documents/', verbose_name="Хужжат юклаш (Шартнома, чек ва ҳ.к)",)
-    Service = models.CharField(max_length=200, verbose_name="Техник холати, хизмат кўрсатиш, алохида холатлар",)
+    document = models.FileField(upload_to='documents/', verbose_name="Хужжат юклаш (Шартнома, чек ва ҳ.к)", blank=True)
+    service = models.CharField(max_length=200, verbose_name="Техник холати, хизмат кўрсатиш, алохида холатлар",)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('device_detail', args=[str(self.id)])
 
     class Meta:
         verbose_name = "Техника"

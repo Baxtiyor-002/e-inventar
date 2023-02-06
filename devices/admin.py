@@ -5,7 +5,7 @@ from .models import Type, Handler, Structure, Device, Company
 
 @admin.register(Device)
 class DeviceAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "inventar", "price", "handler", "structure")
+    list_display = ("id", "name", "inventar", "price", "handler", "structure", "document")
     list_display_links = ("id", "name",)
     list_filter = ("type",)
 
