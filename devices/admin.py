@@ -32,3 +32,4 @@ class StructureAdmin(admin.ModelAdmin):
 class CompanyAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
     list_display_links = ("id", "name")
+
