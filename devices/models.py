@@ -87,7 +87,7 @@ class Device(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        qrcode_img = qrcode.make(f'http://192.168.0.59:8000/devices/{self.url}')
+        qrcode_img = qrcode.make(f'https://e-invertar-af5c0e74380e.herokuapp.com/devices/{self.url}')
         canvas = Image.new('RGB', (350, 350), 'white')
         canvas.paste(qrcode_img)
         fname = f'qr_code-{self.name}'+'.png'
