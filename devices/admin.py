@@ -1,14 +1,20 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from .models import Type, Handler, Structure, Device, Company
 # Register your models here.
 
 
 @admin.register(Device)
 class DeviceAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "inventar", "price", "handler", "structure", "document")
+    list_display = ("id", "name", "inventar", "price", "handler", "structure", "document", )
     list_display_links = ("id", "name",)
     list_filter = ("type",)
-    readonly_fields = ("qr_code",)
+    readonly_fields = ("qr_code", "get_image")
+
+    def get_image(self, obj):
+        return mark_safe(f'<img src={obj.qr_code.url} width="250" height="250"')
+
+    get_image.short_description = "QR код"
 
 
 @admin.register(Type)
