@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'devices',
-    #'qrcode',
+    'qrcode',
 ]
 
 MIDDLEWARE = [
