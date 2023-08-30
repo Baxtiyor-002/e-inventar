@@ -6,15 +6,56 @@
       <div class="card-header">
         <b>Инвентар: {{ device.inventar }}</b>
       </div>
-
+{#        <img src="https://avtomatik.uz/e-invent.png" style="margin-left: 32em" width="300">#}
       <div class="card-body">
-        <h5 class="card-title">Тури: {{ device.name }}</h5>
-        <p class="card-text"><h5>Техник маълумот: {{ device.description }}</h5></p>
-        <p class="card-text"><h5>Ҳолати: {{ device.service }}</h5></p>
-        <p class="card-text"><h5>Харид қилинган санаси: {{ device.bought }}</h5></p>
-        <p class="card-text"><h5>Харид қилинган корхона: {{ device.company }}</h5></p>
-        <p class="card-text"><h5>Харид шартномаси ёки чек: <a href="/documents/{{ device.document }}" target="_blank">Хужжат</a></h5></p>
+{#        <h5 class="card-title">Тури: {{ device.name }}</h5>#}
+{#        <p class="card-text"><h5>Техник маълумот: {{ device.description }}</h5></p>#}
+{#        <p class="card-text"><h5>Ҳолати: {{ device.service }}</h5></p>#}
+{#        <p class="card-text"><h5>Харид қилинган санаси: {{ device.bought }}</h5></p>#}
+{#        <p class="card-text"><h5>Харид қилинган корхона: {{ device.company }}</h5></p>#}
+{#        <p class="card-text"><h5>Харид шартномаси ёки чек: <a href="/documents/{{ device.document }}" target="_blank">Хужжат</a></h5></p>#}
       </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Маълумот</th>
+              <th scope="col">ҳолати</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Тури</td>
+              <td>{{ device.name }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Техник маълумот</td>
+              <td>{{ device.description }}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Ҳолати</td>
+              <td>{{ device.service }}</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Харид қилинган санаси</td>
+              <td>{{ device.bought }}</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Харид қилинган корхона</td>
+              <td>{{ device.company }}</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Харид шартномаси ёки чек</td>
+              <td><a href="/documents/{{ device.document }}" target="_blank">Хужжат</a></td>
+            </tr>
+          </tbody>
+        </table>
       <div class="card-footer text-muted" >
         <h6 style="float: right">Фойдаланувчи: {{ device.handler }} | Бўлим: {{ device.structure }}</h6>
       </div>
