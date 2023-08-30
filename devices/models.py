@@ -88,7 +88,7 @@ class Device(models.Model):
 
     def save(self, *args, **kwargs):
         qrcode_img = qrcode.make(f'https://e-invertar-af5c0e74380e.herokuapp.com/devices/{self.url}')
-        canvas = Image.new('RGB', (550, 550), 'white')
+        canvas = Image.new('RGB', (375, 375), 'white')
         canvas.paste(qrcode_img)
         fname = f'qr_code-{self.name}'+'.png'
         buffer = BytesIO()
