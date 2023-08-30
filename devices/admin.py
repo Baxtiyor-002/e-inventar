@@ -8,6 +8,7 @@ class DeviceAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "inventar", "price", "handler", "structure", "document")
     list_display_links = ("id", "name",)
     list_filter = ("type",)
+    readonly_fields = ("qr_code",)
 
 
 @admin.register(Type)

@@ -4,19 +4,24 @@
 
     <div class="card text-center">
       <div class="card-header">
-        <b>Инвентар: {{ object.inventar }}</b>
+        <b>Инвентар: {{ device.inventar }}</b>
       </div>
 
       <div class="card-body">
-        <h5 class="card-title">Тури: {{ object.name }}</h5>
-        <p class="card-text"><h5>Техник маълумот: {{ object.description }}</h5></p>
-        <p class="card-text"><h5>Ҳолати: {{ object.service }}</h5></p>
-        <p class="card-text"><h5>Харид қилинган санаси: {{ object.bought }}</h5></p>
-        <p class="card-text"><h5>Харид қилинган корхона: {{ object.company }}</h5></p>
-        <p class="card-text"><h5>Харид шартномаси ёки чек: <a href="/documents/{{ object.document }}" target="_blank">Хужжат</a></h5></p>
+        <h5 class="card-title">Тури: {{ device.name }}</h5>
+        <p class="card-text"><h5>Техник маълумот: {{ device.description }}</h5></p>
+        <p class="card-text"><h5>Ҳолати: {{ device.service }}</h5></p>
+        <p class="card-text"><h5>Харид қилинган санаси: {{ device.bought }}</h5></p>
+        <p class="card-text"><h5>Харид қилинган корхона: {{ device.company }}</h5></p>
+        <p class="card-text"><h5>Харид шартномаси ёки чек: <a href="/documents/{{ device.document }}" target="_blank">Хужжат</a></h5></p>
       </div>
       <div class="card-footer text-muted" >
-        <h6 style="float: right">Фойдаланувчи: {{ object.handler }} | Бўлим: {{ object.structure }}</h6>
+        <h6 style="float: right">Фойдаланувчи: {{ device.handler }} | Бўлим: {{ device.structure }}</h6>
       </div>
+      <div class="card-footer text-muted" >
+        <h4 style="">    <img src="{{ device.qr_code.url }}"></h4>
+      </div>
+
     </div>
 {% endblock content %}
+<div>test</div>

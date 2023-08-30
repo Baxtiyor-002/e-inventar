@@ -18,11 +18,12 @@
               {% for device in object_list %}
                   <tr>
                       <th scope="row">{{ device.id }}</th>
-                      <th scope="row"><a href="{% url 'device_detail' device.pk %}">{{ device.name }}</a></th>
+                      <th scope="row"><a href="/devices/{{ device.url }}">{{ device.name }}</a></th>
                       <td>{{ device.inventar }}</td>
                       <td>{{ device.type }}</td>
                       <td>{{ device.handler }}</td>
                       <td>{{ device.structure }}</td>
+                        <td></td>
                   </tr>
               {% endfor %}
 

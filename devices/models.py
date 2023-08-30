@@ -1,6 +1,9 @@
 from django.db import models
 from django.urls import reverse
-
+import qrcode
+from io import BytesIO
+from django.core.files import File
+from PIL import Image, ImageDraw
 # Create your models here.
 
 
@@ -77,9 +80,22 @@ class Device(models.Model):
     )
     document = models.FileField(upload_to='documents/', verbose_name="Хужжат юклаш (Шартнома, чек ва ҳ.к)", blank=True)
     service = models.CharField(max_length=200, verbose_name="Техник холати, хизмат кўрсатиш, алохида холатлар",)
+    qr_code = models.ImageField(upload_to='qr_codes/', blank=True)
+    url = models.SlugField(max_length=160, unique=True, null=True, verbose_name="Инв номер")
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        qrcode_img = qrcode.make(f'http://192.168.0.59:8000/devices/{self.url}')
+        canvas = Image.new('RGB', (350, 350), 'white')
+        canvas.paste(qrcode_img)
+        fname = f'qr_code-{self.name}'+'.png'
+        buffer = BytesIO()
+        canvas.save(buffer, 'PNG')
+        self.qr_code.save(fname, File(buffer), save=False)
+        canvas.close()
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('device_detail', args=[str(self.id)])
