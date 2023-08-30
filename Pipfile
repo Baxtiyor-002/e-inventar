@@ -10,6 +10,7 @@ qrcode = "*"
 environs = {extras = ["django"], version = "*"}
 psycopg2-binary = "*"
 whitenoise = "*"
+pillow = "*"
 
 [dev-packages]
 
