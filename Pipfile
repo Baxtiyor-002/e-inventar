@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "*"
 gunicorn = "*"
+qrcode = "*"
 environs = {extras = ["django"], version = "*"}
 psycopg2-binary = "*"
 whitenoise = "*"
