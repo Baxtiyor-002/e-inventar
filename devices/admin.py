@@ -40,3 +40,7 @@ class CompanyAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
     list_display_links = ("id", "name")
 
+
+admin.site.site_title = "E-INVENTAR | ADMINISTRATION PANEL"
+admin.site.site_header = "E-INVENTAR | ADMINISTRATION PANEL"
+
