@@ -101,7 +101,7 @@ class Device(models.Model):
         return reverse('device_detail', args=[str(self.id)])
 
     class Meta:
-        verbose_name = "Техника"
-        verbose_name_plural = "Техникалар"
+        verbose_name = "Инвентаризация"
+        verbose_name_plural = "Инвентаризация"
 
 
