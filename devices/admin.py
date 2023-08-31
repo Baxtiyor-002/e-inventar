@@ -8,7 +8,7 @@ from .models import Type, Handler, Structure, Device, Company
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "inventar", "price", "handler", "structure", "document", )
     list_display_links = ("id", "name",)
-    list_filter = ("type", "handler",)
+    list_filter = ("type", "handler", "structure",)
     readonly_fields = ("qr_code", "get_image")
 
     def get_image(self, obj):
