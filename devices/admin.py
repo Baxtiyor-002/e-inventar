@@ -8,6 +8,7 @@ from .models import Type, Handler, Structure, Device, Company
 class DeviceAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "inventar", "price", "handler", "structure", "document", )
     list_display_links = ("id", "name",)
+    search_fields = ("name", "handler__name", "structure__name", "company__name", "type__name",)
     list_filter = ("type", "handler", "structure",)
     readonly_fields = ("qr_code", "get_image")
 
